@@ -74,7 +74,7 @@ export function PageHero({
             className="absolute inset-0 h-full w-full object-cover"
           />
           {/* Navy gradient keeps the eyebrow/title legible over any photo. */}
-          <div className="absolute inset-0 bg-[image:var(--gradient-navy)] opacity-80" />
+          <div className="absolute inset-0 bg-[image:var(--gradient-navy)] opacity-40" />
         </>
       ) : (
         <div
