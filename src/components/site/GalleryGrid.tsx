@@ -4,6 +4,76 @@ import { Reveal } from "@/components/site/Reveal";
 import { galleryFilters, galleryItems, type GalleryItem } from "@/lib/gallery-data";
 import { cn } from "@/lib/utils";
 
+/** A single masonry tile with a shimmer skeleton placeholder shown
+ *  until its image has finished decoding, so the layout feels responsive
+ *  even on slow connections. */
+function GalleryTile({
+  item,
+  index,
+  onOpen,
+}: {
+  item: GalleryItem;
+  index: number;
+  onOpen: () => void;
+}) {
+  const [loaded, setLoaded] = useState(false);
+
+  return (
+    <Reveal delay={(index % 6) * 70}>
+      <button
+        type="button"
+        onClick={onOpen}
+        className="group surface-card surface-card-hover mb-6 block w-full overflow-hidden text-left break-inside-avoid p-0"
+        aria-label={`Open ${item.title} in lightbox`}
+      >
+        <span
+          className="relative block overflow-hidden bg-muted"
+          style={{ aspectRatio: `${item.width} / ${item.height}` }}
+        >
+          {/* Shimmer skeleton fills the reserved aspect-ratio box while
+              the image streams in, preventing any layout shift. */}
+          {!loaded && (
+            <span
+              aria-hidden="true"
+              className="skeleton-shimmer absolute inset-0 rounded-none"
+            />
+          )}
+
+          <img
+            src={item.src}
+            srcSet={item.srcSet}
+            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            alt={item.alt}
+            width={item.width}
+            height={item.height}
+            loading={index < 3 ? "eager" : "lazy"}
+            fetchPriority={index < 3 ? "high" : "low"}
+            decoding="async"
+            onLoad={() => setLoaded(true)}
+            className={cn(
+              "w-full transition-all duration-700 group-hover:scale-105",
+              loaded
+                ? "opacity-100 blur-0"
+                : "opacity-0 blur-md",
+            )}
+          />
+
+          <span className="absolute inset-0 bg-[image:var(--gradient-navy)] opacity-0 transition-opacity duration-500 group-hover:opacity-70" />
+          <span className="absolute inset-x-0 bottom-0 flex translate-y-3 items-end justify-between gap-4 p-6 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+            <span>
+              <span className="eyebrow">{item.categoryLabel}</span>
+              <span className="mt-1.5 block font-[family-name:var(--font-display)] text-base font-semibold text-primary-foreground">
+                {item.title}
+              </span>
+            </span>
+            <Expand size={20} className="shrink-0 text-accent" />
+          </span>
+        </span>
+      </button>
+    </Reveal>
+  );
+}
+
 export function GalleryGrid() {
   const [filter, setFilter] = useState<string>("all");
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
