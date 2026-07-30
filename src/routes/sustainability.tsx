@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import fabricImg from "@/assets/fabric.jpg";
+import susHero from "@/assets/gallery-knitting-unit.jpg?w=1600&format=webp";
 import { Reveal } from "@/components/site/Reveal";
 import { PageHero, SectionHead } from "@/components/site/SiteShell";
 import { certifications, sustainability } from "@/lib/site-data";
@@ -33,6 +34,8 @@ function Sustainability() {
         eyebrow="Sustainability"
         title="Sustainable solutions, built into the programme"
         subtitle="Recycled materials, green chemistry and carbon neutral partner factories — sustainability as a sourcing decision, not an afterthought."
+        image={susHero}
+        imageAlt="Knitting machinery producing cotton jersey fabric rolls"
       />
 
       <section className="bg-background py-24">

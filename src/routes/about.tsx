@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import studioImg from "@/assets/design-studio.jpg";
+import aboutHero from "@/assets/gallery-quality-check.jpg?w=1600&format=webp";
 import { Reveal } from "@/components/site/Reveal";
 import { PageHero, SectionHead } from "@/components/site/SiteShell";
 import { leadership, stats, valueProps } from "@/lib/site-data";
@@ -33,6 +34,8 @@ function About() {
         eyebrow="About Us"
         title="Design to Delivery, under one accountable partner"
         subtitle="ASPL Global LLP drives product design, development and manufacturing through a robust D2D model — an own knits/jersey factory plus a network of 25+ partner factories."
+        image={aboutHero}
+        imageAlt="Quality inspector checking a finished garment under inspection lighting"
       />
 
       <section className="bg-background py-24">

@@ -51,17 +51,37 @@ export function PageHero({
   eyebrow,
   title,
   subtitle,
+  image,
+  imageAlt,
 }: {
   eyebrow: string;
   title: string;
   subtitle: string;
+  image?: string;
+  imageAlt?: string;
 }) {
   return (
-    <section className="relative overflow-hidden bg-[image:var(--gradient-navy)] pt-36 pb-20 text-primary-foreground">
-      <div
-        aria-hidden
-        className="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-accent/15 blur-3xl"
-      />
+    <section className="relative overflow-hidden bg-primary pt-36 pb-20 text-primary-foreground">
+      {image ? (
+        <>
+          <img
+            src={image}
+            alt={imageAlt ?? ""}
+            width={1600}
+            height={900}
+            fetchPriority="high"
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+          {/* Navy gradient keeps the eyebrow/title legible over any photo. */}
+          <div className="absolute inset-0 bg-[image:var(--gradient-navy)] opacity-80" />
+        </>
+      ) : (
+        <div
+          aria-hidden
+          className="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-accent/15 blur-3xl"
+        />
+      )}
       <div className="container-x relative">
         <p className="eyebrow">{eyebrow}</p>
         <h1 className="mt-4 max-w-3xl text-4xl leading-[1.08] md:text-6xl">

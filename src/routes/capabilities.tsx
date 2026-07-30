@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import heroImg from "@/assets/hero-factory.jpg";
+import capHero from "@/assets/gallery-sewing-floor.jpg?w=1600&format=webp";
 import { Reveal } from "@/components/site/Reveal";
 import { PageHero, SectionHead } from "@/components/site/SiteShell";
 import { capabilities, certifications, process } from "@/lib/site-data";
@@ -41,6 +42,8 @@ function Capabilities() {
         eyebrow="Capabilities"
         title="Manufacturing built on visibility and control"
         subtitle="Sampling and production across categories, dedicated tech teams for fit development, and real-time status at every stage of the project."
+        image={capHero}
+        imageAlt="Sewing floor with rows of industrial machines at an ASPL partner unit"
       />
 
       <section className="bg-background py-24">

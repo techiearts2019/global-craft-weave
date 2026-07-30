@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import denimImg from "@/assets/denim.jpg";
 import fabricImg from "@/assets/fabric.jpg";
+import productsHero from "@/assets/gallery-womenswear.jpg?w=1600&format=webp";
 import { Reveal } from "@/components/site/Reveal";
 import { PageHero, SectionHead } from "@/components/site/SiteShell";
 import { categories } from "@/lib/site-data";
@@ -40,6 +41,8 @@ function Products() {
         eyebrow="Products"
         title="One-stop sourcing across every apparel category"
         subtitle="Fabric to finished garment — men, women and kids, plus uniforms and fashion accessories, produced across our own knits unit and partner facilities."
+        image={productsHero}
+        imageAlt="Women's dresses and tops on a studio clothing rack"
       />
 
       <section className="bg-background py-24">
