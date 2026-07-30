@@ -144,6 +144,8 @@ export function GalleryGrid() {
             <img
               src={active.src}
               alt={active.alt}
+              decoding="async"
+              fetchPriority="high"
               width={active.width}
               height={active.height}
               className="mx-auto max-h-[72vh] w-auto rounded-xl object-contain shadow-[var(--shadow-lift)]"
