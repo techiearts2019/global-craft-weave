@@ -72,7 +72,7 @@ function Home() {
           height={1088}
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-[image:var(--gradient-navy)] opacity-90" />
+        <div className="absolute inset-0 bg-[image:var(--gradient-navy)] opacity-72" />
         <div className="container-x relative flex min-h-[92vh] flex-col justify-center py-32 text-primary-foreground">
           <Reveal>
             <p className="eyebrow">Think Fashion · Think ASPL Global</p>
