@@ -20,6 +20,8 @@ export function SiteShell({ children }: { children: ReactNode }) {
       <Header />
       <main>{children}</main>
       <Footer />
+      <Toaster />
+
 
       <a
         href={`https://wa.me/${company.whatsapp}`}
