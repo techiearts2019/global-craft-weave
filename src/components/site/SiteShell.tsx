@@ -2,7 +2,9 @@ import { useEffect, useState, type ReactNode } from "react";
 import { ArrowUp, MessageCircle } from "lucide-react";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
+import { Toaster } from "@/components/ui/sonner";
 import { company } from "@/lib/site-data";
+
 
 export function SiteShell({ children }: { children: ReactNode }) {
   const [showTop, setShowTop] = useState(false);
