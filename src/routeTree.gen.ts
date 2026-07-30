@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as CapabilitiesRouteImport } from './routes/capabilities'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as ProductsRouteImport } from './routes/products'
 import { Route as SustainabilityRouteImport } from './routes/sustainability'
 
@@ -36,6 +37,11 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProductsRoute = ProductsRouteImport.update({
   id: '/products',
   path: '/products',
@@ -52,6 +58,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/capabilities': typeof CapabilitiesRoute
   '/contact': typeof ContactRoute
+  '/gallery': typeof GalleryRoute
   '/products': typeof ProductsRoute
   '/sustainability': typeof SustainabilityRoute
 }
@@ -60,6 +67,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/capabilities': typeof CapabilitiesRoute
   '/contact': typeof ContactRoute
+  '/gallery': typeof GalleryRoute
   '/products': typeof ProductsRoute
   '/sustainability': typeof SustainabilityRoute
 }
@@ -69,6 +77,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/capabilities': typeof CapabilitiesRoute
   '/contact': typeof ContactRoute
+  '/gallery': typeof GalleryRoute
   '/products': typeof ProductsRoute
   '/sustainability': typeof SustainabilityRoute
 }
@@ -79,6 +88,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/capabilities'
     | '/contact'
+    | '/gallery'
     | '/products'
     | '/sustainability'
   fileRoutesByTo: FileRoutesByTo
@@ -87,6 +97,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/capabilities'
     | '/contact'
+    | '/gallery'
     | '/products'
     | '/sustainability'
   id:
@@ -95,6 +106,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/capabilities'
     | '/contact'
+    | '/gallery'
     | '/products'
     | '/sustainability'
   fileRoutesById: FileRoutesById
@@ -104,6 +116,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   CapabilitiesRoute: typeof CapabilitiesRoute
   ContactRoute: typeof ContactRoute
+  GalleryRoute: typeof GalleryRoute
   ProductsRoute: typeof ProductsRoute
   SustainabilityRoute: typeof SustainabilityRoute
 }
@@ -138,6 +151,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/products': {
       id: '/products'
       path: '/products'
@@ -160,19 +180,10 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   CapabilitiesRoute: CapabilitiesRoute,
   ContactRoute: ContactRoute,
+  GalleryRoute: GalleryRoute,
   ProductsRoute: ProductsRoute,
   SustainabilityRoute: SustainabilityRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
