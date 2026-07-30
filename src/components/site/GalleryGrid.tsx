@@ -75,15 +75,23 @@ export function GalleryGrid() {
               className="group surface-card surface-card-hover mb-6 block w-full overflow-hidden text-left break-inside-avoid p-0"
               aria-label={`Open ${item.title} in lightbox`}
             >
-              <span className="relative block overflow-hidden">
+              <span
+                className="relative block overflow-hidden bg-muted"
+                style={{ aspectRatio: `${item.width} / ${item.height}` }}
+              >
                 <img
                   src={item.src}
+                  srcSet={item.srcSet}
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                   alt={item.alt}
                   width={item.width}
                   height={item.height}
-                  loading="lazy"
+                  loading={i < 3 ? "eager" : "lazy"}
+                  fetchPriority={i < 3 ? "high" : "low"}
+                  decoding="async"
                   className="w-full transition-transform duration-700 group-hover:scale-105"
                 />
+
                 <span className="absolute inset-0 bg-[image:var(--gradient-navy)] opacity-0 transition-opacity duration-500 group-hover:opacity-70" />
                 <span className="absolute inset-x-0 bottom-0 flex translate-y-3 items-end justify-between gap-4 p-6 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
                   <span>
@@ -136,6 +144,8 @@ export function GalleryGrid() {
             <img
               src={active.src}
               alt={active.alt}
+              decoding="async"
+              fetchPriority="high"
               width={active.width}
               height={active.height}
               className="mx-auto max-h-[72vh] w-auto rounded-xl object-contain shadow-[var(--shadow-lift)]"
