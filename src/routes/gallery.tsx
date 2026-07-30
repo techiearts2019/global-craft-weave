@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { GalleryGrid } from "@/components/site/GalleryGrid";
 import { PageHero } from "@/components/site/SiteShell";
+import galleryHero from "@/assets/hero-factory.jpg?w=1600&format=webp";
 
 export const Route = createFileRoute("/gallery")({
   component: Gallery,
@@ -32,6 +33,8 @@ function Gallery() {
         eyebrow="Gallery"
         title="Inside our factories and across our product range"
         subtitle="Filter by category and open any frame for a full-size preview — from sewing floors and quality inspection to the garments we deliver to global brands."
+        image={galleryHero}
+        imageAlt="ASPL Global partner garment manufacturing facility"
       />
 
       <section className="bg-background py-24">

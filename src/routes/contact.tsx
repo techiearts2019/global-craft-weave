@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Clock, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { toast } from "sonner";
+import contactHero from "@/assets/design-studio.jpg?w=1600&format=webp";
 import { Reveal } from "@/components/site/Reveal";
 import { PageHero, SectionHead } from "@/components/site/SiteShell";
 import { company } from "@/lib/site-data";
@@ -40,6 +41,8 @@ function Contact() {
         eyebrow="Contact"
         title="Let's talk about your next collection"
         subtitle="Share your brief — categories, quantities and timelines — and our team will respond with fabric options, costing and a delivery plan."
+        image={contactHero}
+        imageAlt="Designers developing tech-packs in the ASPL design studio"
       />
 
       <section className="bg-background py-24">
