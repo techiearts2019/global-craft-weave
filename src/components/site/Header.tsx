@@ -87,13 +87,6 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            <Link
-              to="/contact"
-              onClick={() => setOpen(false)}
-              className="mt-4 rounded-lg bg-[image:var(--gradient-gold)] px-5 py-3 text-center text-sm font-semibold text-accent-foreground"
-            >
-              Request a Quote
-            </Link>
           </div>
         </div>
       )}
