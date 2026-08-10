@@ -78,19 +78,19 @@ function Home() {
     const el = scrollRef.current;
     if (!el || reducedMotion) return;
 
-    const speed = 0.7;
+    const speed = 0.04;
     let lastTime = performance.now();
 
     const tick = () => {
+      const now = performance.now();
+      const dt = now - lastTime;
+      lastTime = now;
       if (!isHovered) {
-        const now = performance.now();
-        const dt = now - lastTime;
         el.scrollLeft += speed * dt;
         const maxScroll = el.scrollWidth - el.clientWidth;
         if (maxScroll > 0 && el.scrollLeft >= maxScroll) {
           el.scrollLeft = 0;
         }
-        lastTime = now;
       }
     };
 
