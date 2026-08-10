@@ -31,13 +31,13 @@ export function Header() {
           >
             ASPL <span className="text-accent">Global</span>
           </span>
-          <span
+          <!--<span
             className={`mt-1 text-[10px] tracking-[0.22em] uppercase ${
               scrolled ? "text-muted-foreground" : "text-primary-foreground/70"
             }`}
           >
             Design to Delivery
-          </span>
+          </span>-->
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex">
