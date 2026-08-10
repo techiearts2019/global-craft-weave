@@ -9,13 +9,13 @@ export const Route = createFileRoute("/capabilities")({
   component: Capabilities,
   head: () => ({
     meta: [
-      { title: "Capabilities & Manufacturing — ASPL Global LLP" },
+      { title: "Our Strength & Manufacturing — ASPL Global LLP" },
       {
         name: "description",
         content:
           "Design, sampling, production, fabrics, WIP visibility and quality compliance — how ASPL Global manufactures for global fashion brands.",
       },
-      { property: "og:title", content: "Manufacturing Capabilities — ASPL Global LLP" },
+      { property: "og:title", content: "Manufacturing Strength — ASPL Global LLP" },
       {
         property: "og:description",
         content:
@@ -39,7 +39,7 @@ function Capabilities() {
   return (
     <>
       <PageHero
-        eyebrow="Capabilities"
+        eyebrow="Our Strength"
         title="Manufacturing built on visibility and control"
         subtitle="Sampling and production across categories, dedicated tech teams for fit development, and real-time status at every stage of the project."
         image={capHero}
@@ -51,13 +51,9 @@ function Capabilities() {
           {capabilities.map((c, i) => (
             <Reveal key={c.title} delay={i * 90}>
               <article className="surface-card surface-card-hover h-full p-8">
-                <p className="font-[family-name:var(--font-display)] text-sm font-semibold text-accent">
-                  0{i + 1}
-                </p>
+                <p className="font-[family-name:var(--font-display)] text-sm font-semibold text-accent">0{i + 1}</p>
                 <h2 className="mt-3 text-xl text-primary">{c.title}</h2>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                  {c.body}
-                </p>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{c.body}</p>
                 <ul className="mt-6 space-y-2.5 border-t border-border pt-6">
                   {c.points.map((p) => (
                     <li key={p} className="flex gap-3 text-sm text-foreground">
@@ -108,10 +104,7 @@ function Capabilities() {
       <section className="bg-background py-24">
         <div className="container-x">
           <Reveal>
-            <SectionHead
-              eyebrow="Production Journey"
-              title="Every stage tracked, every stage owned"
-            />
+            <SectionHead eyebrow="Production Journey" title="Every stage tracked, every stage owned" />
           </Reveal>
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {process.map((p, i) => (
@@ -121,9 +114,7 @@ function Capabilities() {
                     {String(i + 1).padStart(2, "0")}
                   </p>
                   <h3 className="mt-4 text-base text-primary">{p.step}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                    {p.body}
-                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.body}</p>
                 </article>
               </Reveal>
             ))}
