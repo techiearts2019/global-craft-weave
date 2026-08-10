@@ -17,9 +17,7 @@ export function Header() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-background/90 backdrop-blur-xl border-b border-border py-3"
-          : "bg-transparent py-5"
+        scrolled ? "bg-background/90 backdrop-blur-xl border-b border-border py-3" : "bg-transparent py-5"
       }`}
     >
       <div className="container-x flex items-center justify-between gap-6">
@@ -31,13 +29,6 @@ export function Header() {
           >
             ASPL <span className="text-accent">Global</span>
           </span>
-          <!--<span
-            className={`mt-1 text-[10px] tracking-[0.22em] uppercase ${
-              scrolled ? "text-muted-foreground" : "text-primary-foreground/70"
-            }`}
-          >
-            Design to Delivery
-          </span>-->
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex">
@@ -61,9 +52,7 @@ export function Header() {
         <div className="hidden items-center gap-4 lg:flex">
           <a
             href={`tel:${company.phone.replace(/\s/g, "")}`}
-            className={`text-sm font-medium ${
-              scrolled ? "text-muted-foreground" : "text-primary-foreground/75"
-            }`}
+            className={`text-sm font-medium ${scrolled ? "text-muted-foreground" : "text-primary-foreground/75"}`}
           >
             {company.phone}
           </a>
