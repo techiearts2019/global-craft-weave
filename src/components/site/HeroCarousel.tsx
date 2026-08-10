@@ -20,7 +20,7 @@ const slides: Slide[] = [
   {
     image: heroImg,
     alt: "Skilled workers stitching garments inside the ASPL Global apparel manufacturing facility",
-    eyebrow: "Think Fashion · Think ASPL Global",
+    eyebrowImage: { url: taglineAsset.url, alt: "Think Fashion · Think ASPL Global", width: 720, height: 48 },
     title: (
       <>
         Manufacturing Excellence for <span className="text-accent">Global Fashion Brands</span>
