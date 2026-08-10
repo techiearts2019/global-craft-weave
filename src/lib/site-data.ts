@@ -165,7 +165,7 @@ export const nav = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
   { label: "Products", to: "/products" },
-  { label: "Capabilities", to: "/capabilities" },
+  { label: "Our Strength", to: "/capabilities" },
   { label: "Sustainability", to: "/sustainability" },
   { label: "Gallery", to: "/gallery" },
   { label: "Contact", to: "/contact" },
