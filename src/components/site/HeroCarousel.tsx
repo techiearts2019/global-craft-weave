@@ -86,9 +86,21 @@ export function HeroCarousel() {
       <div className="container-x relative flex min-h-[92vh] flex-col justify-center py-32 text-primary-foreground">
         {slides.map((s, i) =>
           i === index ? (
-            <div key={s.eyebrow}>
+            <div key={s.eyebrow || s.eyebrowImage?.url}>
               <Reveal>
-                <p className="eyebrow">{s.eyebrow}</p>
+                {s.eyebrowImage ? (
+                  <img
+                    src={s.eyebrowImage.url}
+                    alt={s.eyebrowImage.alt}
+                    width={s.eyebrowImage.width}
+                    height={s.eyebrowImage.height}
+                    className="h-auto max-w-[min(90vw,520px)]"
+                    loading="eager"
+                    fetchPriority="high"
+                  />
+                ) : (
+                  <p className="eyebrow">{s.eyebrow}</p>
+                )}
               </Reveal>
               <Reveal delay={120}>
                 <h1 className="mt-6 max-w-4xl text-4xl leading-[1.05] sm:text-5xl md:text-7xl">{s.title}</h1>
