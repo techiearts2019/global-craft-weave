@@ -1,10 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, BadgeCheck, Boxes, Gauge, Layers, Leaf, Palette, ShieldCheck } from "lucide-react";
-import heroImg from "@/assets/hero-factory.jpg";
 import fabricImg from "@/assets/fabric.jpg";
 import denimImg from "@/assets/denim.jpg";
 import studioImg from "@/assets/design-studio.jpg";
 import { Counter, Reveal } from "@/components/site/Reveal";
+import { HeroCarousel } from "@/components/site/HeroCarousel";
+
 import { SectionHead } from "@/components/site/SiteShell";
 import {
   brands,
