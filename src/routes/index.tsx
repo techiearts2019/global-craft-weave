@@ -87,8 +87,8 @@ function Home() {
           </Reveal>
           <Reveal delay={240}>
             <p className="mt-8 max-w-2xl text-base leading-relaxed text-primary-foreground/80 md:text-lg">
-              Premium apparel manufacturing · Uniform solutions · Fashion accessories · Export quality products. Driven
-              by our robust Design-to-Delivery model, an in-house knits factory and 25+ partner units across India.
+              Premium Apparel and Accessories buying house with own & operated Knit Factory plus more than 25 dedicated
+              vendors making robust supply chain.
             </p>
           </Reveal>
           <Reveal delay={360}>
