@@ -5,11 +5,13 @@ import { Reveal } from "@/components/site/Reveal";
 import heroImg from "@/assets/hero-factory.jpg";
 import denimImg from "@/assets/denim.jpg";
 import knitImg from "@/assets/gallery-knitting-unit.jpg";
+import taglineAsset from "@/assets/aspl-tagline.png.asset.json";
 
 type Slide = {
   image: string;
   alt: string;
-  eyebrow: string;
+  eyebrow?: string;
+  eyebrowImage?: { url: string; alt: string; width: number; height: number };
   title: React.ReactNode;
   body: string;
 };
@@ -18,7 +20,7 @@ const slides: Slide[] = [
   {
     image: heroImg,
     alt: "Skilled workers stitching garments inside the ASPL Global apparel manufacturing facility",
-    eyebrow: "Think Fashion · Think ASPL Global",
+    eyebrowImage: { url: taglineAsset.url, alt: "Think Fashion · Think ASPL Global", width: 720, height: 48 },
     title: (
       <>
         Manufacturing Excellence for <span className="text-accent">Global Fashion Brands</span>
@@ -84,9 +86,21 @@ export function HeroCarousel() {
       <div className="container-x relative flex min-h-[92vh] flex-col justify-center py-32 text-primary-foreground">
         {slides.map((s, i) =>
           i === index ? (
-            <div key={s.eyebrow}>
+            <div key={s.eyebrow || s.eyebrowImage?.url}>
               <Reveal>
-                <p className="eyebrow">{s.eyebrow}</p>
+                {s.eyebrowImage ? (
+                  <img
+                    src={s.eyebrowImage.url}
+                    alt={s.eyebrowImage.alt}
+                    width={s.eyebrowImage.width}
+                    height={s.eyebrowImage.height}
+                    className="h-auto max-w-[min(90vw,520px)]"
+                    loading="eager"
+                    fetchPriority="high"
+                  />
+                ) : (
+                  <p className="eyebrow">{s.eyebrow}</p>
+                )}
               </Reveal>
               <Reveal delay={120}>
                 <h1 className="mt-6 max-w-4xl text-4xl leading-[1.05] sm:text-5xl md:text-7xl">{s.title}</h1>
