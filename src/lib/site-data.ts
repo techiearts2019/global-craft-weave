@@ -1,8 +1,7 @@
 export const company = {
   name: "ASPL Global LLP",
   tagline: "Think Fashion. Think ASPL Global.",
-  address:
-    "No. 1/75 F, Nochipalayam, Veerapandi Post, Tirupur – 641605, Tamil Nadu, India",
+  address: "No. 1/75 F, Nochipalayam, Veerapandi Post, Tirupur – 641605, Tamil Nadu, India",
   email: "dilshad@aspiglobal.com",
   phone: "+91 8810663100",
   whatsapp: "918810663100",
@@ -10,7 +9,7 @@ export const company = {
 };
 
 export const stats = [
-  { value: 70, suffix: "+", label: "Years of leadership expertise" },
+  { value: 70, suffix: "+", label: "Years of collective leadership expertise" },
   { value: 25, suffix: "+", label: "Partner manufacturing units" },
   { value: 19, suffix: "+", label: "Global brands served" },
   { value: 13, suffix: "", label: "Product categories" },
@@ -86,30 +85,69 @@ export const sustainability = [
 ];
 
 export const certifications = [
-  "SMETA", "Sedex", "BSCI", "ISO 9001", "GOTS", "OEKO-TEX Made in Green",
-  "Better Cotton Initiative", "Fair Trade Certified", "IAF", "EGAC Accredited",
-  "Otabu Certification (UK)", "PVH Approved",
+  "SMETA",
+  "Sedex",
+  "BSCI",
+  "ISO 9001",
+  "GOTS",
+  "OEKO-TEX Made in Green",
+  "Better Cotton Initiative",
+  "Fair Trade Certified",
+  "IAF",
+  "EGAC Accredited",
+  "Otabu Certification (UK)",
+  "PVH Approved",
 ];
 
 export const brands = [
-  "Brooks Brothers", "Van Heusen", "IZOD", "FILA", "Lucky Brand", "Tefron",
-  "Hanes", "Sam's Club", "U.S. Polo Assn.", "Tiffosi", "2Tall.com", "LPP",
-  "Champion", "Basic Resources", "Liquorish", "Alexanders of London",
-  "Crew Clothing Company", "Dollar General", "House of Holland",
+  "Brooks Brothers",
+  "Van Heusen",
+  "IZOD",
+  "FILA",
+  "Lucky Brand",
+  "Tefron",
+  "Hanes",
+  "Sam's Club",
+  "U.S. Polo Assn.",
+  "Tiffosi",
+  "2Tall.com",
+  "LPP",
+  "Champion",
+  "Basic Resources",
+  "Liquorish",
+  "Alexanders of London",
+  "Crew Clothing Company",
+  "Dollar General",
+  "House of Holland",
 ];
 
 export const valueProps = [
   {
     audience: "For Brands",
-    points: ["Design to Delivery services", "Product development and innovation", "Vast design library across categories", "Competitive cost, on-time deliveries"],
+    points: [
+      "Design to Delivery services",
+      "Product development and innovation",
+      "Vast design library across categories",
+      "Competitive cost, on-time deliveries",
+    ],
   },
   {
     audience: "For Manufacturers",
-    points: ["Faster turnaround times", "Surety of payment", "Rotation of funds for business", "Design solutions to buyers"],
+    points: [
+      "Faster turnaround times",
+      "Surety of payment",
+      "Rotation of funds for business",
+      "Design solutions to buyers",
+    ],
   },
   {
     audience: "For Garment Units",
-    points: ["Uninterrupted operations", "Continuous feeding of orders", "Minimised production loss", "Dedicated QC and technical support"],
+    points: [
+      "Uninterrupted operations",
+      "Continuous feeding of orders",
+      "Minimised production loss",
+      "Dedicated QC and technical support",
+    ],
   },
   {
     audience: "For Distributors",
