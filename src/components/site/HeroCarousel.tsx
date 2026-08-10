@@ -20,7 +20,6 @@ const slides: Slide[] = [
   {
     image: heroImg,
     alt: "Skilled workers stitching garments inside the ASPL Global apparel manufacturing facility",
-    tagline: { "ASPL Global" },
     eyebrowImage: { url: taglineAsset.url, alt: "Think Fashion · Think ASPL Global", width: 720, height: 48 },
     title: (
       <>
