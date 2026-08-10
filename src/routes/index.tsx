@@ -185,7 +185,7 @@ function Home() {
             className="mt-14 -mr-5 flex gap-6 overflow-x-auto pb-6 pr-5 hide-scrollbar sm:-mr-6 sm:pr-6"
           >
             {capabilities.map((c, i) => (
-              <Reveal key={c.title} delay={i * 90} className="shrink-0 snap-start">
+            <Reveal key={c.title} delay={i * 90} className="shrink-0">
                 <article className="surface-card surface-card-hover h-full w-[85vw] p-8 sm:w-[420px]">
                   <p className="font-[family-name:var(--font-display)] text-sm font-semibold text-accent">0{i + 1}</p>
                   <h3 className="mt-3 text-xl text-primary">{c.title}</h3>
