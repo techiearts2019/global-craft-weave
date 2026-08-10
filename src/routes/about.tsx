@@ -13,13 +13,12 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "ASPL Global LLP is an apparel manufacturer and exporter in Tirupur, India, with an in-house knits factory, 25+ partner units and 70+ years of leadership expertise.",
+          "ASPL Global LLP is an apparel manufacturer and exporter in Tirupur, India, with an in-house knits factory, 25+ partner units and 70+ years of collective leadership expertise.",
       },
       { property: "og:title", content: "About ASPL Global LLP" },
       {
         property: "og:description",
-        content:
-          "Our vision, D2D model, leadership team and manufacturing network across India.",
+        content: "Our vision, D2D model, leadership team and manufacturing network across India.",
       },
       { property: "og:url", content: "/about" },
     ],
@@ -50,22 +49,21 @@ function About() {
               <div>
                 <h3 className="text-lg text-primary">Vision</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  To be the most dependable design-to-delivery partner for
-                  fashion brands sourcing from India.
+                  To be the most dependable design-to-delivery partner for fashion brands sourcing from India.
                 </p>
               </div>
               <div>
                 <h3 className="text-lg text-primary">Mission</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  Combine creative services with commercial design sense,
-                  transparent WIP visibility and on-time delivery on every order.
+                  Combine creative services with commercial design sense, transparent WIP visibility and on-time
+                  delivery on every order.
                 </p>
               </div>
               <div>
                 <h3 className="text-lg text-primary">Core Values</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  Craftsmanship, transparency, ethical manufacturing, sustained
-                  partnerships and accountability at every stage.
+                  Craftsmanship, transparency, ethical manufacturing, sustained partnerships and accountability at every
+                  stage.
                 </p>
               </div>
             </div>
@@ -86,9 +84,7 @@ function About() {
                     {s.value}
                     {s.suffix}
                   </p>
-                  <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-                    {s.label}
-                  </p>
+                  <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{s.label}</p>
                 </div>
               ))}
             </div>
@@ -116,9 +112,7 @@ function About() {
                       .join("")}
                   </span>
                   <h3 className="mt-6 text-lg text-primary">{l.name}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                    {l.role}
-                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{l.role}</p>
                 </article>
               </Reveal>
             ))}
@@ -129,10 +123,7 @@ function About() {
       <section className="bg-background py-24">
         <div className="container-x">
           <Reveal>
-            <SectionHead
-              eyebrow="Who We Serve"
-              title="Value delivered across the chain"
-            />
+            <SectionHead eyebrow="Who We Serve" title="Value delivered across the chain" />
           </Reveal>
           <div className="mt-14 grid gap-6 md:grid-cols-2">
             {valueProps.map((v, i) => (
