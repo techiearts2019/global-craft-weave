@@ -36,7 +36,7 @@ export function Header() {
             <Link
               key={item.to}
               to={item.to}
-              className={`relative text-sm font-medium transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-full after:origin-right after:scale-x-0 after:bg-accent after:transition-transform after:duration-300 hover:after:origin-left hover:after:scale-x-100 ${
+              className={`relative text-base font-medium transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-full after:origin-right after:scale-x-0 after:bg-accent after:transition-transform after:duration-300 hover:after:origin-left hover:after:scale-x-100 ${
                 scrolled
                   ? "text-foreground hover:text-primary"
                   : "text-primary-foreground/85 hover:text-primary-foreground"
@@ -52,7 +52,7 @@ export function Header() {
         <div className="hidden items-center gap-4 lg:flex">
           <a
             href={`tel:${company.phone.replace(/\s/g, "")}`}
-            className={`text-sm font-medium ${scrolled ? "text-muted-foreground" : "text-primary-foreground/75"}`}
+            className={`text-base font-medium ${scrolled ? "text-muted-foreground" : "text-primary-foreground/75"}`}
           >
             {company.phone}
           </a>
@@ -76,7 +76,7 @@ export function Header() {
                 key={item.to}
                 to={item.to}
                 onClick={() => setOpen(false)}
-                className="border-b border-border py-3 text-sm font-medium text-foreground last:border-0"
+                className="border-b border-border py-3 text-base font-medium text-foreground last:border-0"
               >
                 {item.label}
               </Link>
