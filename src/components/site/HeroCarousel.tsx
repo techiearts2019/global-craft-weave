@@ -5,11 +5,13 @@ import { Reveal } from "@/components/site/Reveal";
 import heroImg from "@/assets/hero-factory.jpg";
 import denimImg from "@/assets/denim.jpg";
 import knitImg from "@/assets/gallery-knitting-unit.jpg";
+import taglineAsset from "@/assets/aspl-tagline.png.asset.json";
 
 type Slide = {
   image: string;
   alt: string;
-  eyebrow: string;
+  eyebrow?: string;
+  eyebrowImage?: { url: string; alt: string; width: number; height: number };
   title: React.ReactNode;
   body: string;
 };
