@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, BadgeCheck, Boxes, Gauge, Layers, Leaf, Palette, ShieldCheck } from "lucide-react";
 import fabricImg from "@/assets/fabric.jpg";
@@ -65,6 +66,38 @@ const whyUs = [
 ];
 
 function Home() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(false);
+
+  useEffect(() => {
+    setReducedMotion(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  }, []);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el || reducedMotion) return;
+
+    const speed = 0.7;
+    let lastTime = performance.now();
+
+    const tick = () => {
+      if (!isHovered) {
+        const now = performance.now();
+        const dt = now - lastTime;
+        el.scrollLeft += speed * dt;
+        const maxScroll = el.scrollWidth - el.clientWidth;
+        if (maxScroll > 0 && el.scrollLeft >= maxScroll) {
+          el.scrollLeft = 0;
+        }
+        lastTime = now;
+      }
+    };
+
+    const id = setInterval(tick, 16);
+    return () => clearInterval(id);
+  }, [isHovered, reducedMotion]);
+
   return (
     <>
       {/* Hero */}
@@ -145,7 +178,12 @@ function Home() {
               body="Four pillars carry every programme we run for brands, distributors and retail chains."
             />
           </Reveal>
-          <div className="mt-14 -mr-5 flex gap-6 overflow-x-auto pb-6 pr-5 snap-x snap-mandatory hide-scrollbar sm:-mr-6 sm:pr-6">
+          <div
+            ref={scrollRef}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            className="mt-14 -mr-5 flex gap-6 overflow-x-auto pb-6 pr-5 hide-scrollbar sm:-mr-6 sm:pr-6"
+          >
             {capabilities.map((c, i) => (
               <Reveal key={c.title} delay={i * 90} className="shrink-0 snap-start">
                 <article className="surface-card surface-card-hover h-full w-[85vw] p-8 sm:w-[420px]">
