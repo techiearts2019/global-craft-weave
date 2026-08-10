@@ -109,48 +109,6 @@ function Home() {
             </div>
           </Reveal>
         </div>
-
-        <img
-          src={heroImg}
-          alt="Skilled workers stitching garments inside the ASPL Global apparel manufacturing facility"
-          width={1920}
-          height={1088}
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-        <div className="absolute inset-0 bg-[image:var(--gradient-navy)] opacity-72" />
-        <div className="container-x relative flex min-h-[92vh] flex-col justify-center py-32 text-primary-foreground">
-          <Reveal>
-            <p className="eyebrow">2222Think Fashion · Think ASPL Global</p>
-          </Reveal>
-          <Reveal delay={120}>
-            <h1 className="mt-6 max-w-4xl text-4xl leading-[1.05] sm:text-5xl md:text-7xl">
-              Manufacturing Excellence for <span className="text-accent">Global Fashion Brands</span>
-            </h1>
-          </Reveal>
-          <Reveal delay={240}>
-            <p className="mt-8 max-w-2xl text-base leading-relaxed text-primary-foreground/80 md:text-lg">
-              Premium Apparel and Accessories buying house with own & operated Knit Factory plus more than 25 dedicated
-              vendors making robust supply chain.
-            </p>
-          </Reveal>
-          <Reveal delay={360}>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <Link
-                to="/contact"
-                className="group inline-flex items-center gap-2 rounded-lg bg-[image:var(--gradient-gold)] px-7 py-4 text-sm font-semibold text-accent-foreground shadow-[var(--shadow-lift)] transition-transform duration-300 hover:-translate-y-1"
-              >
-                Request a Quote
-                <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
-              </Link>
-              <Link
-                to="/capabilities"
-                className="inline-flex items-center gap-2 rounded-lg border border-primary-foreground/25 bg-primary-foreground/5 px-7 py-4 text-sm font-semibold text-primary-foreground backdrop-blur-md transition-colors hover:bg-primary-foreground/15"
-              >
-                Explore Our Strength
-              </Link>
-            </div>
-          </Reveal>
-        </div>
       </section>
 
       {/* Stats */}
