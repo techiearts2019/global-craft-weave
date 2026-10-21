@@ -18,4 +18,4 @@ The inquiry form sends to `dilshad@aspiglobal.com`. A success message appears on
 
 ## Test the email-handling rule
 
-With PHP CLI installed, run `python3 tests/test_shared_hosting_mail.py`. The test substitutes a local mail command and verifies both accepted and rejected messages without sending real email.
+With PHP CLI installed, run `python3 tests/test_shared_hosting_mail.py` from the project folder. The test substitutes a local mail command and verifies both accepted and rejected messages without sending real email.
