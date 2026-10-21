@@ -5,7 +5,7 @@ import { Reveal } from "@/components/site/Reveal";
 import heroImg from "@/assets/hero-factory.jpg";
 import denimImg from "@/assets/denim.jpg";
 import knitImg from "@/assets/gallery-knitting-unit.jpg";
-import taglineAsset from "@/assets/aspl-tagline.png.asset.json";
+import taglineImg from "@/assets/aspl-tagline.png";
 
 type Slide = {
   image: string;
@@ -20,7 +20,7 @@ const slides: Slide[] = [
   {
     image: heroImg,
     alt: "Skilled workers stitching garments inside the ASPL Global apparel manufacturing facility",
-    eyebrowImage: { url: taglineAsset.url, alt: "Think Fashion · Think ASPL Global", width: 720, height: 48 },
+    eyebrowImage: { url: taglineImg, alt: "Think Fashion · Think ASPL Global", width: 666, height: 46 },
     title: (
       <>
         Manufacturing Excellence for <span className="text-accent">Global Fashion Brands</span>
