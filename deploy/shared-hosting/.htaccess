@@ -1,0 +1,11 @@
+Options -Indexes
+DirectoryIndex index.html
+
+<IfModule mod_negotiation.c>
+  Options -MultiViews
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^(about|capabilities|contact|gallery|products|sustainability)/?$ $1/index.html [L]
+</IfModule>
