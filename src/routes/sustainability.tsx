@@ -21,6 +21,8 @@ export const Route = createFileRoute("/sustainability")({
         content:
           "How ASPL Global builds responsible sourcing and recycled product ranges into every programme.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { property: "og:url", content: "/sustainability" },
     ],
     links: [{ rel: "canonical", href: "/sustainability" }],

@@ -21,6 +21,8 @@ export const Route = createFileRoute("/capabilities")({
         content:
           "Plug n' Play model, 25+ partner factories, ERP-based order tracking and international certifications.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { property: "og:url", content: "/capabilities" },
     ],
     links: [{ rel: "canonical", href: "/capabilities" }],

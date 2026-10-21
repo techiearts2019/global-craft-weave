@@ -5,6 +5,7 @@ import { toast } from "sonner";
 import contactHero from "@/assets/design-studio.jpg?w=1600&format=webp";
 import { Reveal } from "@/components/site/Reveal";
 import { PageHero, SectionHead } from "@/components/site/SiteShell";
+import { Button } from "@/components/ui/button";
 import { company } from "@/lib/site-data";
 
 export const Route = createFileRoute("/contact")({
@@ -23,6 +24,8 @@ export const Route = createFileRoute("/contact")({
         content:
           "Request a quote, sampling or the company profile from our Tirupur team.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { property: "og:url", content: "/contact" },
     ],
     links: [{ rel: "canonical", href: "/contact" }],
@@ -51,34 +54,60 @@ function Contact() {
             <SectionHead eyebrow="Inquiry Form" title="Send us your requirement" />
             <form
               className="mt-10 grid gap-6 sm:grid-cols-2"
-              onSubmit={(e) => {
-                e.preventDefault();
+              action="/contact.php"
+              method="post"
+              onSubmit={async (event) => {
+                event.preventDefault();
                 setSending(true);
-                const form = e.currentTarget;
-                setTimeout(() => {
-                  setSending(false);
+                const form = event.currentTarget;
+
+                try {
+                  const response = await fetch(form.action, {
+                    method: "POST",
+                    body: new FormData(form),
+                    headers: { Accept: "application/json" },
+                  });
+                  const result = (await response.json().catch(() => null)) as {
+                    success?: boolean;
+                    message?: string;
+                  } | null;
+
+                  if (!response.ok || !result?.success) {
+                    throw new Error(result?.message ?? "The inquiry could not be sent.");
+                  }
+
                   form.reset();
-                  toast.success("Thank you — your inquiry has been recorded.", {
+                  toast.success("Your inquiry has been sent to ASPL Global.", {
                     description: `Our team will reply to you shortly. For urgent requirements, call ${company.phone}.`,
                   });
-                }, 700);
+                } catch {
+                  toast.error("We couldn't send your inquiry.", {
+                    description: `Please email ${company.email} or call ${company.phone}.`,
+                  });
+                } finally {
+                  setSending(false);
+                }
               }}
             >
+              <label className="sr-only" aria-hidden="true">
+                Website
+                <input name="website" tabIndex={-1} autoComplete="off" className="sr-only" />
+              </label>
               <label className="text-sm font-medium text-primary">
                 Full name
-                <input required name="name" className={fieldClass} placeholder="Your name" />
+                <input required maxLength={120} name="name" className={fieldClass} placeholder="Your name" />
               </label>
               <label className="text-sm font-medium text-primary">
                 Company
-                <input name="company" className={fieldClass} placeholder="Brand / company" />
+                <input maxLength={160} name="company" className={fieldClass} placeholder="Brand / company" />
               </label>
               <label className="text-sm font-medium text-primary">
                 Email
-                <input required type="email" name="email" className={fieldClass} placeholder="you@company.com" />
+                <input required maxLength={254} type="email" name="email" className={fieldClass} placeholder="you@company.com" />
               </label>
               <label className="text-sm font-medium text-primary">
                 Phone
-                <input name="phone" className={fieldClass} placeholder="+00 000 000 0000" />
+                <input maxLength={60} name="phone" className={fieldClass} placeholder="+00 000 000 0000" />
               </label>
               <label className="text-sm font-medium text-primary sm:col-span-2">
                 Product category
@@ -97,19 +126,20 @@ function Contact() {
                 Your requirement
                 <textarea
                   required
+                  maxLength={8000}
                   name="message"
                   rows={5}
                   className={fieldClass}
                   placeholder="Styles, quantities, fabric preferences and target delivery window"
                 />
               </label>
-              <button
+              <Button
                 type="submit"
                 disabled={sending}
-                className="rounded-lg bg-[image:var(--gradient-gold)] px-8 py-4 text-sm font-semibold text-accent-foreground shadow-[var(--shadow-soft)] transition-transform duration-300 hover:-translate-y-0.5 disabled:opacity-60 sm:col-span-2 sm:justify-self-start"
+                className="h-auto rounded-lg bg-[image:var(--gradient-gold)] px-8 py-4 text-sm font-semibold text-accent-foreground shadow-[var(--shadow-soft)] transition-transform duration-300 hover:-translate-y-0.5 disabled:opacity-60 sm:col-span-2 sm:justify-self-start"
               >
                 {sending ? "Sending…" : "Submit Inquiry"}
-              </button>
+              </Button>
             </form>
           </Reveal>
 

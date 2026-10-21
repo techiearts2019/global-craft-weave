@@ -38,6 +38,8 @@ export const Route = createFileRoute("/")({
         content:
           "Design to Delivery services, 25+ partner factories, small MOQs and short lead times for fast fashion and D2C brands.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { property: "og:url", content: "/" },
     ],
     links: [{ rel: "canonical", href: "/" }],

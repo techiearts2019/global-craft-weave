@@ -7,13 +7,32 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 import { imagetools } from "vite-imagetools";
 
-export default defineConfig({
-  tanstackStart: {
-    // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
-    // nitro/vite builds from this
-    server: { entry: "server" },
-  },
-  vite: {
-    plugins: [imagetools()],
-  },
-});
+const sharedHostingBuild = process.env.SHARED_HOSTING_BUILD === "1";
+
+export default defineConfig(
+  sharedHostingBuild
+    ? {
+        tanstackStart: {
+          server: { entry: "server" },
+          pages: [
+            { path: "/" },
+            { path: "/about" },
+            { path: "/capabilities" },
+            { path: "/contact" },
+            { path: "/gallery" },
+            { path: "/products" },
+            { path: "/sustainability" },
+          ],
+          prerender: { enabled: true, autoStaticPathsDiscovery: false },
+        },
+        nitro: { preset: "static" },
+        vite: { plugins: [imagetools()] },
+      }
+    : {
+        tanstackStart: {
+          // Redirect TanStack Start's server bundle to the shared SSR error wrapper.
+          server: { entry: "server" },
+        },
+        vite: { plugins: [imagetools()] },
+      },
+);

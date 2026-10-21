@@ -8,3 +8,7 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+## Build targets
+
+- Keep shared-hosting output in an explicit build mode with an allowlisted route set and a static Nitro preset; preserve the default Lovable/Cloudflare build so publishing behavior stays unchanged.
