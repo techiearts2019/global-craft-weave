@@ -23,6 +23,8 @@ export const Route = createFileRoute("/products")({
         content:
           "Graphic tees, polos, shirts, innerwear, ethnicwear, denim, outerwear, kidswear and complete uniform programmes.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { property: "og:url", content: "/products" },
     ],
     links: [{ rel: "canonical", href: "/products" }],
