@@ -1,15 +1,21 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { company, nav } from "@/lib/site-data";
+import logoLight from "@/assets/aspl-logo.png";
 
 export function Footer() {
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="container-x grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4">
         <div>
-          <p className="font-[family-name:var(--font-display)] text-2xl font-bold">
-            ASPL <span className="text-accent">Global</span>
-          </p>
+          <img
+            src={logoLight}
+            alt="ASPL Global LLP"
+            width={498}
+            height={159}
+            className="h-11 w-auto"
+            loading="lazy"
+          />
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-primary-foreground/70">
             {company.tagline} Design to delivery services for global fashion brands — apparels, accessories and
             uniforms.

@@ -2,6 +2,8 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { company, nav } from "@/lib/site-data";
+import logoLight from "@/assets/aspl-logo.png";
+import logoDark from "@/assets/aspl-logo-navy.png";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -21,14 +23,15 @@ export function Header() {
       }`}
     >
       <div className="container-x flex items-center justify-between gap-6">
-        <Link to="/" className="group flex flex-col leading-none">
-          <span
-            className={`font-[family-name:var(--font-display)] text-xl font-bold tracking-tight ${
-              scrolled ? "text-primary" : "text-primary-foreground"
-            }`}
-          >
-            ASPL <span className="text-accent">Global</span>
-          </span>
+        <Link to="/" aria-label="ASPL Global LLP — home" className="leading-none">
+          <img
+            src={scrolled ? logoDark : logoLight}
+            alt="ASPL Global LLP"
+            width={498}
+            height={159}
+            className="h-8 w-auto sm:h-10"
+            fetchPriority="high"
+          />
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex">
